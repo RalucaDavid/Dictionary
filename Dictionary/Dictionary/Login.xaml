@@ -10,5 +10,18 @@
 
     <Grid>
         <local:NavigationBar Loaded="NavigationBar_Loaded" Background="#FFC6F4F5"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Login" FontSize="20" FontWeight="Bold" Margin="0 0 0 20"/>
+            <StackPanel Margin="0 0 0 10">
+                <TextBlock Text="Username:"/>
+                <TextBox x:Name="usernameTextBox" Width="200"/>
+            </StackPanel>
+            <StackPanel Margin="0 0 0 10">
+                <TextBlock Text="Password:"/>
+                <PasswordBox x:Name="passwordBox" Width="200"/>
+            </StackPanel>
+            <Button Content="Login" Width="100" Click="LoginButton_Click" Background="White"/>
+            <TextBlock x:Name="resultTextBlock" Text="" Foreground="Red" Margin="0 10 0 0"/>
+        </StackPanel>
     </Grid>
 </Page>
