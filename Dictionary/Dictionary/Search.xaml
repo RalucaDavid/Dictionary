@@ -8,7 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Search">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <local:NavigationBar Loaded="NavigationBar_Loaded" Background="#FFC6F4F5"/>
+        <Image Source="Resources/Images/search_book.png" Margin="158,70,130,182" />
+        <TextBox x:Name="searchTextBox" VerticalAlignment="Top" Margin="197,236,210,0" Height="32" RenderTransformOrigin="0.501,1.438"/>
+        <Button Content="Search"  RenderTransformOrigin="5.196,0.575" Margin="595,236,149,182" Background="White"/>
     </Grid>
 </Page>
