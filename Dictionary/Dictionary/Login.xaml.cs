@@ -25,6 +25,11 @@ namespace Dictionary
             InitializeComponent();
         }
 
+        private void NavigationBar_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void LoginClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
