@@ -9,6 +9,6 @@
       Title="Admin">
 
     <Grid>
-        <local:NavigationBar Loaded="NavigationBar_Loaded" Background="#FFC6F4F5"/>
+        
     </Grid>
 </Page>
