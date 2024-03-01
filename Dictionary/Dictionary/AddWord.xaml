@@ -28,5 +28,6 @@
         <TextBlock Text="Add image (optional):" Grid.ColumnSpan="2" Margin="132,157,133,15" FontSize="20" Grid.Column="1"/>
         <Button Content="Finish" Click="FinishClick" Margin="111,400,10,-240" Grid.Column="2" Background="White"/>
         <TextBlock Text="Add category:" Grid.ColumnSpan="2" Margin="133,79,132,96" FontSize="20" Grid.Column="1"/>
+        <TextBox x:Name="wordText_Copy" Width="200" Margin="132,109,201,65" Grid.Column="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>

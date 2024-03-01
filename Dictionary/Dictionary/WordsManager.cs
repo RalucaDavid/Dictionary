@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
 
 namespace Dictionary
 {
@@ -12,6 +14,41 @@ namespace Dictionary
         public WordsManager()
         {
             wordsList = new List<WordDefinition>();
+        }
+        public void LoadWords(string filePath)
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            string word=string.Empty, category=string.Empty, description = string.Empty;
+            int numberLine = 1;
+            foreach (string line in lines)
+            {
+                if (numberLine % 2 == 1)
+                {
+                    string[] parts = line.Split(' ');
+                    if (parts.Length == 2)
+                    {
+                        word = parts[0];
+                        category = parts[1];
+                    }
+                }
+                else
+                {
+                    description = line;
+                    WordDefinition newword = new WordDefinition(word, category, description);
+                    wordsList.Add(newword);
+                }
+                numberLine++;
+            }
+        }
+        public void SaveWords(string filePath)
+        {
+            List<string> lines = new List<string>();
+            foreach (WordDefinition word in wordsList)
+            {
+                lines.Add($"{word.Name} {word.Category}");
+                lines.Add(word.Description);
+            }
+            File.WriteAllLines(filePath, lines);
         }
         public void AddWord(string name, string category, string description)
         {
