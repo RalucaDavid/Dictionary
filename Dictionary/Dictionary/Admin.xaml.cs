@@ -24,5 +24,13 @@ namespace Dictionary
         {
             InitializeComponent();
         }
+        private void ExitClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            if (navigationService != null)
+            {
+                navigationService.Navigate(new Uri("Search.xaml", UriKind.Relative));
+            }
+        }
     }
 }
