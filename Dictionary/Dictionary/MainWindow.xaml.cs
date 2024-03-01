@@ -24,6 +24,8 @@ namespace Dictionary
         public MainWindow()
         {
             InitializeComponent();
+            this.Width = 800;
+            this.Height = 520;
             MainFrame.Navigate(new Search());
         }
     }

@@ -16,28 +16,28 @@ using System.Windows.Shapes;
 namespace Dictionary
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for AddWord.xaml
     /// </summary>
-    public partial class Admin : Page
+    public partial class AddWord : Page
     {
-        public Admin()
+        public AddWord()
         {
             InitializeComponent();
         }
-        private void ExitClick(object sender, RoutedEventArgs e)
+        private void BackClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("Search.xaml", UriKind.Relative));
+                navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
             }
         }
-        private void AddClick(object sender, RoutedEventArgs e)
+        private void FinishClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("AddWord.xaml", UriKind.Relative));
+                navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
             }
         }
     }

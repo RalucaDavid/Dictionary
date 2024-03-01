@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Search">
 
-    <Grid Background="white">
+    <Grid Background="#BB31E4D7">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -19,8 +19,11 @@
         </Grid.ColumnDefinitions>
         <local:NavigationBar Loaded="NavigationBar_Loaded" Grid.ColumnSpan="3" Margin="0,0,0,89"/>
         <Image Source="/Resources/Images/logo.jpg" Margin="58,125,58,-50" Grid.Column="1"/>
-        <TextBox x:Name="searchTextBox" Margin="192,235,255,-120"  RenderTransformOrigin="0.459,10.301" Grid.ColumnSpan="3"/>
-        <Button Content="Search" Margin="17,235,183,-120" Background="White" Grid.Column="2" />
+        <Button Content="Search" Margin="17,235,183,-124" Background="White" Grid.Column="2" />
+        <StackPanel RenderTransformOrigin="0.712,1.055" Grid.ColumnSpan="3" Margin="209,235,255,-245">
+            <TextBox x:Name="searchTextBox" TextChanged="SearchTextBox_TextChanged" PreviewKeyDown="SearchTextBox_PreviewKeyDown" Height="20"/>
+            <ListBox x:Name="suggestionsListBox" Visibility="Collapsed"/>
+        </StackPanel>
     </Grid>
 
 </Page>
