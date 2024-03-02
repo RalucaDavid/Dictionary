@@ -5,12 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
+using System.Runtime.CompilerServices;
 
 namespace Dictionary
 {
-    class WordsManager
+    public class WordsManager
     {
         private List<WordDefinition> wordsList;
+        HashSet<string> categories = new HashSet<string>();
+        public List<WordDefinition> WordsList
+        {
+            get { return wordsList; }
+            set { wordsList = value; }
+        }
+        public HashSet<string> Categories
+        {  
+           get { return categories; } 
+           set {  categories = value; }
+        }
         public WordsManager()
         {
             wordsList = new List<WordDefinition>();
@@ -34,8 +46,9 @@ namespace Dictionary
                 else
                 {
                     description = line;
-                    WordDefinition newword = new WordDefinition(word, category, description);
-                    wordsList.Add(newword);
+                    WordDefinition newWord = new WordDefinition(word, category, description);
+                    wordsList.Add(newWord);
+                    categories.Add(category);
                 }
                 numberLine++;
             }
@@ -59,9 +72,9 @@ namespace Dictionary
         {
             return wordsList.Find(word => word.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
-        public WordDefinition SearchWordByCategory(string category)
+        public List<WordDefinition> SearchWordByCategory(string category)
         {
-            return wordsList.Find(word => word.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            return wordsList.Where(word => word.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
         }
         public void RemoveWord(string name)
         {

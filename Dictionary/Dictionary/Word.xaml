@@ -8,12 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Word">
 
-    <Grid Background="white">
-        <local:NavigationBar Loaded="NavigationBar_Loaded" Margin="0,0,0,395"/>
-        <TextBlock Text="Word" Margin="63,90,632,160" FontSize="36"/>
-        <TextBlock Text="ewvnoeqnvofeqvnerqvpinreqvernvqernpvmqreqvpnreqnvreq" TextWrapping="Wrap" Margin="63,138,400,112" FontSize="20" RenderTransformOrigin="1.571,0.925"/>
-        <Border BorderBrush="Gray" BorderThickness="1" Width="200" Height="200" Margin="480,138,120,112">
+    <Grid Background="#BB31E4D7">
+        <local:NavigationBar Loaded="NavigationBar_Loaded" Margin="0,0,0,410"/>
+        <TextBlock Text="Word" Margin="63,90,632,312" FontSize="36"/>
+        <TextBlock Text="ewvnoeqnvofeqvnerqvpinreqvernvqernpvmqreqvpnreqnvreq" TextWrapping="Wrap" Margin="63,172,400,78" FontSize="20" RenderTransformOrigin="1.571,0.925"/>
+        <Border BorderBrush="Gray" BorderThickness="1" Margin="480,138,90,78">
             <Image Source="Resources/Images/logo.jpg" Stretch="UniformToFill" Margin="-1,1,1,-1"/>
         </Border>
+        <TextBlock Text="Category" Margin="63,138,632,278" FontSize="20"/>
     </Grid>
 </Page>

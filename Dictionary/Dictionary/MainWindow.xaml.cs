@@ -29,7 +29,7 @@ namespace Dictionary
             this.Width = 800;
             this.Height = 520;
             data.LoadWords("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt");
-            MainFrame.Navigate(new Search());
+            MainFrame.Navigate(new Search(data));
         }
     }
 }

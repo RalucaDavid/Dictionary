@@ -4,3 +4,7 @@ hallucinate verb
 (of artificial intelligence) to produce false information contrary to the intent of the user and present it as if true and factual
 mother noun
 a woman who has borne offspring; a female parent
+moment noun
+an indefinitely short period of time; instant
+goat noun
+any of numerous agile, hollow-horned ruminants of the genus Capra, of the family Bovidae, closely related to the sheep, found native in rocky and mountainous regions of the Old World, and widely distributed in domesticated varieties
