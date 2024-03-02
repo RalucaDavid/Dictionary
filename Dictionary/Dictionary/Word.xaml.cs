@@ -12,21 +12,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Word.xaml
-    /// </summary>
     public partial class Word : Page
     {
-        public Word()
+        private WordDefinition word;
+        public Word(WordDefinition searchWord)
         {
             InitializeComponent();
+            word = searchWord;
         }
         private void NavigationBar_Loaded(object sender, RoutedEventArgs e)
         {
             /*empty*/
+        }
+
+        private void WordLoaded(object sender, RoutedEventArgs e)
+        {
+            name.Text=word.Name;
+            category.Text=word.Category;
+            description.Text=word.Description;
+            string imagePath = $"C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\{word.Name}.jpg";
+            if (File.Exists(imagePath))
+            {
+                photo.Source = new BitmapImage(new Uri(imagePath));
+            }
+            else
+            {
+                photo.Source = new BitmapImage(new Uri("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\default.jpg"));
+            }
         }
     }
 }

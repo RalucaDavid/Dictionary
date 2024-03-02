@@ -22,11 +22,11 @@ namespace Dictionary
     /// </summary>
     public partial class Search : Page
     {
-        private WordsManager data;
-        public Search(WordsManager newData)
+        private WordsManager data = new WordsManager();
+        public Search()
         {
             InitializeComponent();
-            data = newData;
+            data.LoadWords();
         }
         private void NavigationBar_Loaded(object sender, RoutedEventArgs e)
         {
@@ -71,10 +71,21 @@ namespace Dictionary
         }
         private void SearchClick(object sender, RoutedEventArgs e)
         {
-            NavigationService navigationService = NavigationService.GetNavigationService(this);
-            if (navigationService != null)
+            if (!string.IsNullOrEmpty(searchTextBox.Text))
             {
-                navigationService.Navigate(new Uri("Word.xaml", UriKind.Relative));
+                WordDefinition word = data.SearchWordByName(searchTextBox.Text);
+                if (word != null)
+                {
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    if (navigationService != null)
+                    {
+                        navigationService.Navigate(new Word(word));
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The word does not exist in the dictionary.");
+                }
             }
         }
     }

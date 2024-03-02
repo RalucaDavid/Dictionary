@@ -27,9 +27,9 @@ namespace Dictionary
         {
             wordsList = new List<WordDefinition>();
         }
-        public void LoadWords(string filePath)
+        public void LoadWords()
         {
-            string[] lines = File.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt");
             string word=string.Empty, category=string.Empty, description = string.Empty;
             int numberLine = 1;
             foreach (string line in lines)

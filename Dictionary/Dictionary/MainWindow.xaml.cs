@@ -22,14 +22,12 @@ namespace Dictionary
     /// </summary>
     public partial class MainWindow : Window
     {
-        private WordsManager data = new WordsManager();
         public MainWindow()
         {
             InitializeComponent();
             this.Width = 800;
             this.Height = 520;
-            data.LoadWords("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt");
-            MainFrame.Navigate(new Search(data));
+            MainFrame.Navigate(new Search());
         }
     }
 }
