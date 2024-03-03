@@ -29,7 +29,6 @@ namespace Dictionary
         {
             /*empty*/
         }
-
         private void WordLoaded(object sender, RoutedEventArgs e)
         {
             name.Text=word.Name;

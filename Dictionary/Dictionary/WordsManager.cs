@@ -73,9 +73,10 @@ namespace Dictionary
         {
             return wordsList.Find(word => word.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
-        public List<WordDefinition> SearchWordsByCategory(string category)
+        public WordDefinition ChooseRandomWord()
         {
-            return wordsList.Where(word => word.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+            Random random = new Random();
+            return wordsList[random.Next(0, wordsList.Count)];
         }
         public bool RemoveWord(string name)
         {

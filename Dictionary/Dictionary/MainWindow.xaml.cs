@@ -28,6 +28,7 @@ namespace Dictionary
             this.Width = 800;
             this.Height = 520;
             MainFrame.Navigate(new Search());
+            MainFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
         }
     }
 }

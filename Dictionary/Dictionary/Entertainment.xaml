@@ -8,7 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Entertainment">
 
-    <Grid>
-        
+    <Grid Background="#BB31E4D7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="263*"/>
+            <ColumnDefinition Width="267*"/>
+        </Grid.ColumnDefinitions>
+        <local:NavigationBar Loaded="NavigationBar_Loaded" Grid.ColumnSpan="3" Margin="0,0,0,163"/>
+        <TextBlock  Text="Guessing Game" RenderTransformOrigin="0.815,0.941" Margin="21,109,10,53" FontSize="30" Grid.Column="1" FontWeight="Bold"/>
+        <Button Click="StartClick" Content="Start" Margin="64,200,67,-32" Grid.Column="1" Background="White" FontSize="15"/>
+        <TextBlock Text="You have to guess 5 words after their description/picture." Grid.ColumnSpan="3" Margin="250,295,0,-102" RenderTransformOrigin="0.574,0.482" HorizontalAlignment="Left" Width="310"/>
     </Grid>
 </Page>

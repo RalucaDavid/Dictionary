@@ -1,0 +1,29 @@
+﻿<Page x:Class="Dictionary.Round"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dictionary"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Round"
+      Loaded="RoundLoaded">
+
+    <Grid Background="#BB31E4D7">
+        <TextBlock x:Name="descriptionText" TextWrapping="Wrap" Text="" Margin="232,85,252,225" FontWeight="Bold"/>
+        <Border BorderThickness="1" Margin="275,50,295,190">
+            <Grid Margin="-11,9,-1,43">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="photo" Stretch="UniformToFill" HorizontalAlignment="Left" Margin="10,-10,0,-43" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+        <TextBlock Text="Enter your answer:" Margin="325,310,295,120" FontSize="15"/>
+        <TextBox x:Name="input" Margin="275,335,295,110" KeyDown="VerifyAnswer"/>
+        <TextBlock x:Name="numberCorrect"  Margin="10,35,580,390"/>
+        <TextBlock x:Name="round"  Margin="10,10,698,415"/>
+        <Button x:Name="Finish" Click="FinishClick" Content="Finish" Margin="653,380,80,55" Background="White" />
+    </Grid>
+</Page>
