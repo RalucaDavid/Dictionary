@@ -53,8 +53,9 @@ namespace Dictionary
                 numberLine++;
             }
         }
-        public void SaveWords(string filePath)
+        public void SaveWords()
         {
+            string filePath = "C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt";
             List<string> lines = new List<string>();
             foreach (WordDefinition word in wordsList)
             {

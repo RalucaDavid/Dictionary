@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +25,7 @@ namespace Dictionary
     public partial class AddWord : Page
     {
         private WordsManager data = new WordsManager();
+        private string selectedFilePath;
         public AddWord()
         {
             InitializeComponent();
@@ -39,9 +43,35 @@ namespace Dictionary
         {
             string name = wordText.Text;
             string description = descriptionText.Text;
+            if ((String.IsNullOrEmpty(name))|| (String.IsNullOrEmpty(description))||(categoryComboBox.SelectedIndex == -1))
+            {
+                MessageBox.Show("A field is empty.");
+                return;
+            }
+            if(data.SearchWordByName(name)!=null)
+            {
+                MessageBox.Show("The word already exists.");
+                return;
+            }
+            string category = (categoryComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string pattern = @"^[a-zA-Z\-]+$";
+            if (!Regex.IsMatch(name, pattern))
+            {
+                MessageBox.Show("The word is not suitable for the dictionary.");
+                return;
+            }
+            if (!String.IsNullOrEmpty(selectedFilePath))
+            {
+                string destinationFolderPath = "C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\";
+                string destinationFilePath = System.IO.Path.Combine(destinationFolderPath, name + System.IO.Path.GetExtension(selectedFilePath));
+                File.Copy(selectedFilePath, destinationFilePath);
+            }
+            data.AddWord(name,category,description);
+            data.SaveWords();
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
+                MessageBox.Show("The word was successfully added.");
                 navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
             }
         }
@@ -71,6 +101,15 @@ namespace Dictionary
                 {
                     categoryComboBox.SelectedIndex = -1;
                 }
+            }
+        }
+        private void AddPhotoClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg;*.gif;*.bmp)|*.png;*.jpeg;*.jpg;*.gif;*.bmp|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedFilePath = openFileDialog.FileName;
             }
         }
     }
