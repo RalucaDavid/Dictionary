@@ -8,7 +8,7 @@ moment noun
 an indefinitely short period of time; instant
 goat noun
 any of numerous agile, hollow-horned ruminants of the genus Capra, of the family Bovidae, closely related to the sheep, found native in rocky and mountainous regions of the Old World, and widely distributed in domesticated varieties
-sweet adjective
-having the taste or flavor characteristic of sugar, honey, etc.
 good adjective
 morally excellent; virtuous; righteous; pious
+sweet adjective
+having the taste or flavor characteristic of sugar, honey, etc.

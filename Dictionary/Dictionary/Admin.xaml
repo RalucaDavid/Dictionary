@@ -20,6 +20,6 @@
         <Button x:Name="Exit" Click="ExitClick" Content="Exit"  Margin="177,24,25,-45" Grid.Column="2" Background="DarkViolet"/>
         <Button Content="Add word" Click="AddClick" Grid.ColumnSpan="2" Margin="261,130,0,-165" Background="White"/>
         <Button Content="Modify word" Grid.ColumnSpan="3" Margin="264,203,264,-238" Background="White"/>
-        <Button Content="Delete word" Grid.ColumnSpan="2" Margin="261,280,0,-315" Background="White"/>
+        <Button Content="Delete word" Click="DeleteClick" Grid.ColumnSpan="2" Margin="261,280,0,-315" Background="White"/>
     </Grid>
 </Page>

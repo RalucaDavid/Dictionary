@@ -40,5 +40,13 @@ namespace Dictionary
                 navigationService.Navigate(new Uri("AddWord.xaml", UriKind.Relative));
             }
         }
+        private void DeleteClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            if (navigationService != null)
+            {
+                navigationService.Navigate(new Uri("DeleteWord.xaml", UriKind.Relative));
+            }
+        }
     }
 }

@@ -1,0 +1,28 @@
+﻿<Page x:Class="Dictionary.DeleteWord"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Dictionary"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DeleteWord">
+
+    <Grid Background="#BB31E4D7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="back" Click="BackClick" Content="Back"  Margin="177,24,25,187" Grid.Column="2" Background="DarkViolet"/>
+        <Button Content="Delete" Click="DeleteClick"  Grid.Column="2" Background="White" Margin="27,205,170,12" RenderTransformOrigin="0.038,0.752"/>
+        <TextBlock  TextWrapping="Wrap" Text="Search and select the word you want to delete:" Grid.ColumnSpan="3" Margin="205,118,245,52" FontSize="25"/>
+        <StackPanel RenderTransformOrigin="0.712,1.055" Margin="205,205,245,-178" Grid.ColumnSpan="3" >
+            <TextBox x:Name="searchTextBox" TextChanged="SearchTextBox_TextChanged" Height="20"/>
+            <ListBox x:Name="suggestionsListBox" Visibility="Collapsed" MouseLeftButtonUp="SuggestionsListBox_SelectionChanged"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -73,17 +73,19 @@ namespace Dictionary
         {
             return wordsList.Find(word => word.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
-        public List<WordDefinition> SearchWordByCategory(string category)
+        public List<WordDefinition> SearchWordsByCategory(string category)
         {
             return wordsList.Where(word => word.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
         }
-        public void RemoveWord(string name)
+        public bool RemoveWord(string name)
         {
             WordDefinition wordToRemove = SearchWordByName(name);
             if (wordToRemove != null)
             {
                 wordsList.Remove(wordToRemove);
+                return true;
             }
+            return false;
         }
     }
 }
