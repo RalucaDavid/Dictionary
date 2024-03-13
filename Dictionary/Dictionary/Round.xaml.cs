@@ -43,7 +43,9 @@ namespace Dictionary
         {
             WordDefinition word = data.ChooseRandomWord();
             choosenWord = word.Name;
-            string imagePath = $"C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\{word.Name}.jpg";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+            string imagePath = System.IO.Path.Combine(directoryPath, "Resources", "Images", $"{choosenWord}.jpg");
             if (File.Exists(imagePath))
             {
                 Random random = new Random();

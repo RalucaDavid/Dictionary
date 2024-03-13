@@ -62,7 +62,9 @@ namespace Dictionary
             }
             if (!String.IsNullOrEmpty(selectedFilePath))
             {
-                string destinationFolderPath = "C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\";
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+                string destinationFolderPath = System.IO.Path.Combine(directoryPath, "Resources", "Images");
                 string destinationFilePath = System.IO.Path.Combine(destinationFolderPath, name + System.IO.Path.GetExtension(selectedFilePath));
                 File.Copy(selectedFilePath, destinationFilePath);
             }

@@ -12,3 +12,5 @@ good adjective
 morally excellent; virtuous; righteous; pious
 sweet adjective
 having the taste or flavor characteristic of sugar, honey, etc.; producing the one of the four basic taste sensations that is not bitter, sour, or salt.
+father noun
+a man who begets offspring; a male parent.

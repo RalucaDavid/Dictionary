@@ -25,7 +25,10 @@ namespace Dictionary
         public Login()
         {
             InitializeComponent();
-            authManager = new AuthenticationManager("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Accounts.txt");
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+            string dataPath = System.IO.Path.Combine(directoryPath, "Resources", "Data", "Accounts.txt");
+            authManager = new AuthenticationManager(dataPath);
         }
 
         private void NavigationBar_Loaded(object sender, RoutedEventArgs e)

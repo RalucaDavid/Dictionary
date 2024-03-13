@@ -34,14 +34,17 @@ namespace Dictionary
             name.Text=word.Name;
             category.Text=word.Category;
             description.Text=word.Description;
-            string imagePath = $"C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\{word.Name}.jpg";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+            string imagePath = System.IO.Path.Combine(directoryPath, "Resources", "Images", $"{word.Name}.jpg");
             if (File.Exists(imagePath))
             {
                 photo.Source = new BitmapImage(new Uri(imagePath));
             }
             else
             {
-                photo.Source = new BitmapImage(new Uri("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Images\\default.jpg"));
+                string defaultImagePath = System.IO.Path.Combine(directoryPath, "Resources", "Images", "default.jpg");
+                photo.Source = new BitmapImage(new Uri(defaultImagePath));
             }
         }
     }

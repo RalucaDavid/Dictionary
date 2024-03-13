@@ -29,7 +29,10 @@ namespace Dictionary
         }
         public void LoadWords()
         {
-            string[] lines = File.ReadAllLines("C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt");
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+            string filePath = System.IO.Path.Combine(directoryPath, "Resources", "Data", "Words.txt");
+            string[] lines = File.ReadAllLines(filePath);
             string word=string.Empty, category=string.Empty, description = string.Empty;
             int numberLine = 1;
             foreach (string line in lines)
@@ -55,7 +58,9 @@ namespace Dictionary
         }
         public void SaveWords()
         {
-            string filePath = "C:\\Users\\Raluca David\\Desktop\\Portofoliu\\Dictionary\\Dictionary\\Dictionary\\Resources\\Data\\Words.txt";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+            string filePath = System.IO.Path.Combine(directoryPath, "Resources", "Data", "Words.txt");
             List<string> lines = new List<string>();
             foreach (WordDefinition word in wordsList)
             {
