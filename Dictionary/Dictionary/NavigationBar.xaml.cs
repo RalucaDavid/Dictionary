@@ -24,7 +24,6 @@ namespace Dictionary
         {
             InitializeComponent();
         }
-
         private void EntertainmentClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -33,7 +32,6 @@ namespace Dictionary
                 navigationService.Navigate(new Uri("Entertainment.xaml", UriKind.Relative));
             }
         }
-
         private void AdminClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);
@@ -42,7 +40,6 @@ namespace Dictionary
                 navigationService.Navigate(new Uri("Login.xaml", UriKind.Relative));
             }
         }
-
         private void SearchClick(object sender, RoutedEventArgs e)
         {
             NavigationService navigationService = NavigationService.GetNavigationService(this);

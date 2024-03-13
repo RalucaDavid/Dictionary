@@ -10,13 +10,18 @@
       Loaded="WordLoaded">
 
     <Grid Background="#BB31E4D7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <local:NavigationBar Loaded="NavigationBar_Loaded" Margin="0,0,0,410"/>
         <TextBlock x:Name="name" Text="" Margin="63,90,400,312" FontSize="36"/>
         <TextBlock x:Name="description" Text="" TextWrapping="Wrap" Margin="63,172,400,78" FontSize="20" RenderTransformOrigin="1.571,0.925"/>
         <Border BorderBrush="Gray" BorderThickness="1" Margin="480,138,90,78">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding ElementName=photo, Path=Source}" Stretch="UniformToFill"/>
+            </Border.Background>
             <Grid>
-                <Image x:Name="photo" Source="" Stretch="UniformToFill"
-               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image x:Name="photo" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
             </Grid>
         </Border>
         <TextBlock x:Name="category" Text="" Margin="63,138,632,278" FontSize="20" Foreground="#FF484848" />
