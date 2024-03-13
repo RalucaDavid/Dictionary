@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
 using System.Runtime.CompilerServices;
+using System.Windows.Markup;
+using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace Dictionary
 {
@@ -69,10 +72,34 @@ namespace Dictionary
             }
             File.WriteAllLines(filePath, lines);
         }
-        public void AddWord(string name, string category, string description)
+        public bool AddWord(string name, string category, string description)
         {
+            if (SearchWordByName(name) != null)
+            {
+                MessageBox.Show("The word already exists.");
+                return false;
+            }
+            string pattern = @"^[a-zA-Z\-]+$";
+            if (!Regex.IsMatch(name, pattern))
+            {
+                MessageBox.Show("The word is not suitable for the dictionary.");
+                return false;
+            }
             WordDefinition newWord = new WordDefinition(name, category, description);
             wordsList.Add(newWord);
+            SaveWords();
+            return true;
+        }
+        public void AddImage(string selectedFilePath, string name)
+        {
+            if (!string.IsNullOrEmpty(selectedFilePath))
+            {
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string directoryPath = Path.Combine(baseDirectory, "..\\..\\..\\");
+                string destinationFolderPath = Path.Combine(directoryPath, "Resources", "Images");
+                string destinationFilePath = Path.Combine(destinationFolderPath, name + Path.GetExtension(selectedFilePath));
+                File.Copy(selectedFilePath, destinationFilePath);
+            }
         }
         public WordDefinition SearchWordByName(string name)
         {

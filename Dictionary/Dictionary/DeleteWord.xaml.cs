@@ -17,9 +17,6 @@ using System.IO;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for DeleteWord.xaml
-    /// </summary>
     public partial class DeleteWord : Page
     {
         private WordsManager data = new WordsManager();

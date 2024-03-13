@@ -16,9 +16,6 @@ using System.IO;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
     public partial class Login : Page
     {
         private AuthenticationManager authManager;

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Admin.xaml
-    /// </summary>
     public partial class Admin : Page
     {
         public Admin()

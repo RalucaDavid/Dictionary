@@ -10,7 +10,7 @@ goat noun
 any of numerous agile, hollow-horned ruminants of the genus Capra, of the family Bovidae, closely related to the sheep, found native in rocky and mountainous regions of the Old World, and widely distributed in domesticated varieties
 good adjective
 morally excellent; virtuous; righteous; pious
-sweet adjective
-having the taste or flavor characteristic of sugar, honey, etc.; producing the one of the four basic taste sensations that is not bitter, sour, or salt.
 father noun
 a man who begets offspring; a male parent.
+green adjective
+of the color of growing foliage, between yellow and blue in the spectrum; covered with herbage or foliage

@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Entertainment.xaml
-    /// </summary>
     public partial class Entertainment : Page
     {
         public Entertainment()

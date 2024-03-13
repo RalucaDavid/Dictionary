@@ -17,9 +17,6 @@ using System.IO;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Round.xaml
-    /// </summary>
     public partial class Round : Page
     {
         private WordsManager data = new WordsManager();

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Dictionary
 {
-    /// <summary>
-    /// Interaction logic for Search.xaml
-    /// </summary>
     public partial class Search : Page
     {
         private WordsManager data = new WordsManager();
