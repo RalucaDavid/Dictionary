@@ -57,6 +57,7 @@ namespace Dictionary
                     NavigationService navigationService = NavigationService.GetNavigationService(this);
                     if (navigationService != null)
                     {
+                        navigationService.RemoveBackEntry();
                         navigationService.Navigate(new ModifyWord(word));
                     }
                 }
@@ -71,7 +72,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Admin.xaml", UriKind.Relative));
             }
         }
     }

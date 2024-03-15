@@ -31,8 +31,9 @@ namespace Dictionary
            NavigationService navigationService = NavigationService.GetNavigationService(this);
            if (navigationService != null)
            {
-                navigationService.Navigate(new Uri("Round.xaml", UriKind.Relative));
-            }
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Round.xaml", UriKind.Relative));
+           }
         }
     }
 }

@@ -12,16 +12,28 @@
     <Grid Background="#BB31E4D7">
         <TextBlock x:Name="descriptionText" TextWrapping="Wrap" Text="" Margin="232,85,252,225" FontWeight="Bold"/>
         <Border BorderThickness="1" Margin="275,50,295,190">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding ElementName=photo, Path=Source}" Stretch="UniformToFill"/>
+            </Border.Background>
             <Grid Margin="-11,9,-1,43">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="photo" Stretch="UniformToFill" HorizontalAlignment="Left" Margin="10,-10,0,-43" Grid.ColumnSpan="2"/>
+                <Image x:Name="photo" Stretch="UniformToFill" Visibility="Collapsed" HorizontalAlignment="Left" Margin="10,-10,0,-43" Grid.ColumnSpan="2"/>
             </Grid>
         </Border>
         <TextBlock Text="Enter your answer:" Margin="325,310,295,120" FontSize="15"/>
-        <TextBox x:Name="input" Margin="275,335,295,110" KeyDown="VerifyAnswer"/>
+        <TextBox x:Name="input" Margin="275,335,295,110" KeyDown="VerifyAnswer" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
         <TextBlock x:Name="numberCorrect"  Margin="10,35,580,390"/>
         <TextBlock x:Name="round"  Margin="10,10,698,415"/>
         <Button x:Name="Finish" Click="FinishClick" Content="Finish" Margin="653,380,80,55" Background="White" />

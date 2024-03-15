@@ -26,7 +26,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("Search.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Search.xaml", UriKind.Relative));
             }
         }
         private void AddClick(object sender, RoutedEventArgs e)
@@ -34,7 +35,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("AddWord.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/AddWord.xaml", UriKind.Relative));
             }
         }
         private void DeleteClick(object sender, RoutedEventArgs e)
@@ -42,7 +44,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("DeleteWord.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/DeleteWord.xaml", UriKind.Relative));
             }
         }
         private void ModifyClick(object sender, RoutedEventArgs e)
@@ -50,7 +53,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("SearchToModify.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/SearchToModify.xaml", UriKind.Relative));
             }
         }
     }

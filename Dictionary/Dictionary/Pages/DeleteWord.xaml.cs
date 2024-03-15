@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,21 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Dictionary
 {
-    public partial class Search : Page
+    public partial class DeleteWord : Page
     {
         private WordsManager data = new WordsManager();
-        public Search()
+        public DeleteWord()
         {
             InitializeComponent();
             data.LoadWords();
         }
-        private void NavigationBar_Loaded(object sender, RoutedEventArgs e)
-        {
-            /*empty*/
-        }
+
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = searchTextBox.Text;
@@ -39,8 +36,7 @@ namespace Dictionary
                 {
                     if (word.Name.StartsWith(searchText))
                     {
-                        if(categoryComboBox.SelectedIndex == 0 || (categoryComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() == word.Category)
-                            suggestionsListBox.Items.Add(word.Name);
+                        suggestionsListBox.Items.Add(word.Name);
                     }
                 }
             }
@@ -54,35 +50,34 @@ namespace Dictionary
                 suggestionsListBox.Visibility = Visibility.Collapsed;
             }
         }
-        private void AddCategories(object sender, RoutedEventArgs e)
+        private void DeleteClick(object sender, RoutedEventArgs e)
         {
-            categoryComboBox.Items.Clear();
-            categoryComboBox.Items.Add("none");
-            foreach (string category in data.Categories)
+            if (data.RemoveWord(searchTextBox.Text))
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = category;
-                categoryComboBox.Items.Add(item);
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string directoryPath = System.IO.Path.Combine(baseDirectory, "..\\..\\..\\");
+                string imagePath = System.IO.Path.Combine(directoryPath, "Resources", "Images", $"{searchTextBox.Text.Trim()}.jpg");
+                if (File.Exists(imagePath))
+                {
+                    File.Delete(imagePath);
+                }
+                data.SaveWords();
+                searchTextBox.Text = String.Empty;
+                suggestionsListBox.Items.Clear();
+                MessageBox.Show("The word was successfully deleted.");
             }
-            categoryComboBox.SelectedIndex = 0;
-        }
-        private void SearchClick(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(searchTextBox.Text))
+            else
             {
-                WordDefinition word = data.SearchWordByName(searchTextBox.Text);
-                if (word != null)
-                {
-                    NavigationService navigationService = NavigationService.GetNavigationService(this);
-                    if (navigationService != null)
-                    {
-                        navigationService.Navigate(new Word(word));
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("The word does not exist in the dictionary.");
-                }
+                MessageBox.Show("The word does not exist in the dictionary.");
+            }
+        }
+        private void BackClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService navigationService = NavigationService.GetNavigationService(this);
+            if (navigationService != null)
+            {
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Admin.xaml", UriKind.Relative));
             }
         }
     }

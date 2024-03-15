@@ -18,7 +18,7 @@
             <ColumnDefinition Width="267*"/>
         </Grid.ColumnDefinitions>
         <local:NavigationBar Loaded="NavigationBar_Loaded" Grid.ColumnSpan="3" Margin="0,0,0,178"/>
-        <Image Source="/Dictionary;component/Resources/Images/search_book.png" Margin="45,42,18,-70" RenderTransformOrigin="0.355,0.543" Grid.Column="1"/>
+        <Image x:Name="photo" Margin="45,42,18,-70" RenderTransformOrigin="0.355,0.543" Grid.Column="1"/>
         <Button Content="Search" Click="SearchClick" Margin="37,235,163,-32" Background="White" Grid.Column="2" />
         <StackPanel RenderTransformOrigin="0.712,1.055" Grid.ColumnSpan="3" Margin="232,235,232,-245">
             <TextBox x:Name="searchTextBox" TextChanged="SearchTextBox_TextChanged" Height="20"/>

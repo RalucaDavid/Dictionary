@@ -42,7 +42,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Admin.xaml", UriKind.Relative));
             }
         }
         private void AddCategories(object sender, RoutedEventArgs e)
@@ -89,7 +90,8 @@ namespace Dictionary
                 if (navigationService != null)
                 {
                     MessageBox.Show("The word was successfully modified.");
-                    navigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
+                    navigationService.RemoveBackEntry();
+                    navigationService.Navigate(new Uri("../Pages/Admin.xaml", UriKind.Relative));
                 }
             }
         }

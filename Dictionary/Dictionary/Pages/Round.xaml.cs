@@ -76,6 +76,7 @@ namespace Dictionary
                 if ((navigationService != null)&&(numberRound<5))
                 {
                     numberRound++;
+                    navigationService.RemoveBackEntry();
                     navigationService.Navigate(new Round(numberRound,numberAnswers));
                 }
                 if(numberRound==5)
@@ -87,7 +88,8 @@ namespace Dictionary
             NavigationService navigationService = NavigationService.GetNavigationService(this);
             if (navigationService != null)
             {
-                navigationService.Navigate(new Uri("Entertainment.xaml", UriKind.Relative));
+                navigationService.RemoveBackEntry();
+                navigationService.Navigate(new Uri("../Pages/Entertainment.xaml", UriKind.Relative));
             }
         }
     }
